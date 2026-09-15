@@ -234,39 +234,38 @@ function initSchedule() {
 async function loadWeather() {
     try {
         const response = await fetch('weather.json?v=' + Math.random());
-        
-        if (!response.ok) {
-            throw new Error(`Не удалось открыть файл weather.json. Статус: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Статус: ${response.status}`);
         
         const data = await response.json();
-        console.log("Данные успешно получены из JSON:", data);
+        console.log("Данные из JSON:", data);
         
         const weatherElement = document.getElementById('weather');
         if (weatherElement) {
             weatherElement.innerText = data.temperature;
         }
 
-        if (data.temperature && data.temperature !== 'Ошибка' && data.temperature !== 'Н/Д') {
-            const tempNumber = parseInt(data.temperature, 10);
+        if (data.temperature) {
+            if (data.temperature === "Ошибка" || data.temperature === "Н/Д") {
+                console.log("Парсер вернул ошибку, включаем тестовый оранжевый фон.");
+                document.body.style.backgroundColor = "#ff9f43";
+                return; 
+            }
 
+            const tempNumber = parseInt(data.temperature, 10);
             if (!isNaN(tempNumber)) {
-                if (tempNumber > 0) {                   
+                if (tempNumber > 0) {
                     document.body.style.backgroundColor = "#ff9f43"; 
                 } else {
                     document.body.style.backgroundColor = "#dfe4ea"; 
                 }
             }
         }
-
     } catch (error) {
-        console.error('Ошибка в script.js при смене фона:', error);
-        const weatherElement = document.getElementById('weather');
-        if (weatherElement) {
-            weatherElement.innerText = 'Ошибка чтения данных';
-        }
+        console.error('Ошибка в loadWeather:', error);
     }
 }
+document.addEventListener('DOMContentLoaded', loadWeather);
+
 
 
 
