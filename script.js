@@ -233,7 +233,6 @@ function initSchedule() {
 
 async function loadWeather() {
     try {
-        
         const response = await fetch('weather.json?v=' + Math.random());
         
         if (!response.ok) {
@@ -247,8 +246,21 @@ async function loadWeather() {
         if (weatherElement) {
             weatherElement.innerText = data.temperature;
         }
+
+        if (data.temperature && data.temperature !== 'Ошибка' && data.temperature !== 'Н/Д') {
+            const tempNumber = parseInt(data.temperature, 10);
+
+            if (!isNaN(tempNumber)) {
+                if (tempNumber > 0) {                   
+                    document.body.style.backgroundColor = "#ff9f43"; 
+                } else {
+                    document.body.style.backgroundColor = "#dfe4ea"; 
+                }
+            }
+        }
+
     } catch (error) {
-        console.error('Ошибка в script.js:', error);
+        console.error('Ошибка в script.js при смене фона:', error);
         const weatherElement = document.getElementById('weather');
         if (weatherElement) {
             weatherElement.innerText = 'Ошибка чтения данных';
@@ -256,7 +268,6 @@ async function loadWeather() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', loadWeather);
 
 
 
