@@ -4,8 +4,31 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - факт</title>
+    <title>Главная - Лабораторная работа</title>
     <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода в Ижевске</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+        .weather-box {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 { margin: 0 0 10px 0; font-size: 24px; color: #333; }
+        #weather { font-size: 48px; font-weight: bold; color: #007bff; }
+    </style>
 </head>
 <body>
 
@@ -16,9 +39,14 @@
         <a href="calc.html">Калькулятор</a>
         <a href="form.html">Анкета</a>
     </nav>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Погода в Ижевске</title>
+    <div class="weather-box">
+        <h1>Ижевск</h1>
+        <!-- Сюда script.js подставит градусы вместо этого текста -->
+        <div id="weather">Загрузка погоды...</div> 
+    </div>
+
+
+
     <div class="container">
         <h1>Сап! 👋</h1>
         <p>Добро пожаловать в учебный проект. Используйте меню навигации выше, чтобы переходить между разделами лабораторной работы.</p>
@@ -26,6 +54,7 @@
 
 
     </div>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
