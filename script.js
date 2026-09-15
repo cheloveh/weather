@@ -251,3 +251,4 @@ async function loadWeather() {
 
 document.addEventListener('DOMContentLoaded', loadWeather);
 
+
