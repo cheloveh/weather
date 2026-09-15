@@ -726,10 +726,31 @@ tr:hover:not(thead tr) {
 
     
     .weather-widget {
-        justify-content: center;
-        margin-top: 5px;
-        padding: 10px;
-    }
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    
+   
+    display: inline-flex;    
+    align-items: center;     
+    gap: 6px;                
+    margin: 15px 0;          
+    width: max-content;     
+    
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+
+.weather-widget b {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
 
     .table-responsive {
         overflow-x: auto; 
