@@ -231,24 +231,32 @@ function initSchedule() {
 }
 
 
-const weatherWidget = document.getElementById("weather-loading-text");
 async function loadWeather() {
     try {
         
-        const response = await fetch('./weather.json');
-        const data = await response.json();
+        const response = await fetch('weather.json?v=' + Math.random());
         
+        if (!response.ok) {
+            throw new Error(`Не удалось открыть файл weather.json. Статус: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log("Данные успешно получены из JSON:", data);
         
         const weatherElement = document.getElementById('weather');
         if (weatherElement) {
-            weatherElement.innerText = `${data.temperature}`;
+            weatherElement.innerText = data.temperature;
         }
     } catch (error) {
-        console.error('Не удалось загрузить сохраненную погоду:', error);
+        console.error('Ошибка в script.js:', error);
+        const weatherElement = document.getElementById('weather');
+        if (weatherElement) {
+            weatherElement.innerText = 'Ошибка чтения данных';
+        }
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', loadWeather);
+
 
 
