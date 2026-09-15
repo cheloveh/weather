@@ -8,36 +8,39 @@ def parse_weather():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
     
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        
-        soup = BeautifulSoup(response.text, 'html.parser')
-        weather_cells = soup.find_all(string=True)
-        
-        temperature = "Н/Д"
-        for text in weather_cells:
-            if "15 сен" in text or "День" in text: 
-                break
-                
-        
-        for text in soup.stripped_strings:
-            if '°' in text and text.replace('°', '').replace('-', '').replace('+', '').isdigit():
-                temperature = text
-                break
-
-
-        data = {"city": "Ижевск", "temperature": temperature}
-        with open('weather.json', 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
+    # 1. Скачиваем страницу
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()
+    
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    
+    temperature = None
+    
+   
+    forecast_cells = soup.find_all('td')
+    
+    for cell in forecast_cells:
+        text = cell.get_text().strip()
+       
+        if '°' in text and len(text) <= 4:  # Градусы обычно короткие, например "18°" или "+18°"
+            temperature = text
+            break # Нашли самую актуальную температуру на сегодня и выходим
             
-        print(f"Успешно сохранено: {temperature}")
+    
+    if not temperature:
+        raise ValueError("Критическая ошибка: Не удалось найти ячейку с градусами на сайте!")
 
-    except Exception as e:
-        print(f"Ошибка парсинга: {e}")
+   
+    data = {
+        "city": "Ижевск",
+        "temperature": temperature
+    }
+    
+    with open('weather.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
         
-        with open('weather.json', 'w', encoding='utf-8') as f:
-            json.dump({"city": "Ижевск", "temperature": "Ошибка"}, f)
+    print(f"Парсер сработал! Записано значение: {temperature}")
 
 if __name__ == "__main__":
     parse_weather()
