@@ -245,11 +245,13 @@ async function loadWeather() {
         }
 
         if (data.temperature) {
+
             if (data.temperature === "Ошибка" || data.temperature === "Н/Д") {
                 console.log("Парсер вернул ошибку, включаем тестовый оранжевый фон.");
                 document.body.style.backgroundColor = "#ff9f43";
                 return; 
             }
+
 
             const tempNumber = parseInt(data.temperature, 10);
             if (!isNaN(tempNumber)) {
@@ -265,6 +267,7 @@ async function loadWeather() {
     }
 }
 document.addEventListener('DOMContentLoaded', loadWeather);
+
 
 
 
