@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <nav class="navigation">
+        <a href="index.html">Главная</a>
+        <a href="raspisania.html">Расписание</a>
+        <a href="food.html">Питание</a>
+        <a href="calc.html" class="active">Калькулятор</a>
+        <a href="form.html">Анкета</a>
+    </nav>
+    <div class="weather-widget">
+        <span id="weather-loading-text">Загрузка погоды...</span>
+    </div>
+
+
+
+    <div class="container">
+        <h1>Калькулятор (5 действий)</h1>
+        <p style="color: #7f8c8d; margin-bottom: 25px;">Используйте поля ниже для ввода чисел Число 1 (R) и Число 2 (H).</p>
+
+        <div class="calc-wrapper">
+            
+            <div class="calc-screen">
+                <span id="calc-display">Результат: 0</span>
+            </div>
+
+          
+            <div class="calc-inputs">
+                <div class="input-field">
+                    <label for="num1">Число 1 / Радиус (R)</label>
+                    <input type="number" id="num1" placeholder="Введите значение...">
+                </div>
+                <div class="input-field">
+                    <label for="num2">Число 2 / Высота (H)</label>
+                    <input type="number" id="num2" placeholder="Введите значение...">
+                </div>
+            </div>
+
+            <div class="calc-buttons-grid">
+                <button class="calc-btn-action" data-op="+">➕ Сложить</button>
+                <button class="calc-btn-action" data-op="-">➖ Вычесть</button>
+                <button class="calc-btn-action" data-op="*">✖️ Умножить</button>
+                <button class="calc-btn-action" data-op="/">➗ Разделить</button>
+
+               
+                <button id="btn-cylinder" class="calc-btn-special">Объем цилиндра</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

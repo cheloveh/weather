@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание занятий</title>
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <nav class="navigation">
+        <a href="index.html">Главная</a>
+        <a href="raspisania.html" class="active">Расписание</a>
+        <a href="food.html">Питание</a>
+        <a href="calc.html">Калькулятор</a>
+        <a href="form.html">Анкета</a>
+    </nav>
+    <div class="weather-widget">
+        <span id="weather-loading-text">Загрузка погоды...</span>
+    </div>
+
+
+    <div class="container">
+        <h1>Группа 52151 (522)</h1>
+        <p style="color: #7f8c8d; margin-bottom: 15px;">Учебный год: 2026/2027</p>
+
+
+        <div style="background-color: #e8f4f8; border-left: 4px solid #3498db; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 15px;">
+            💡 <strong>Подсказка:</strong> Нажмите на название любого предмета, чтобы узнать форму контроля (зачет или экзамен).
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>День</th>
+                        <th>Время</th>
+                        <th>Дисциплина, аудитория, преподаватель</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="day-title" rowspan="4">Понедельник</td>
+                        <td class="time-cell">8:30 - 10:05</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Правоведение 1-409</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:15 - 11:50</td>
+                        <td>
+                            
+                            <div class="week-split">
+                                <span class="discipline-clickable numerator" data-info="Форма контроля: Экзамен">Философия 1-502 Козловский С.В.</span>
+                                <span class="discipline-clickable denominator" data-info="Форма контроля: Зачет">Правоведение 1-502 Колесова С.Р.</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:30 - 14:05</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Экзамен">Исследование операций и методы оптимизации 4-405 Миронова М.В.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:15 - 15:50</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Экзамен (диф. зачет)">Исследование операций и методы оптимизации 4-405</span>
+                        </td>
+                    </tr>
+
+                  
+                    <tr class="day-boundary">
+                        <td class="day-title" rowspan="4">Вторник</td>
+                        <td class="time-cell">8:30 - 10:05</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Экзамен">Математика 1-512</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:15 - 11:50</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Экзамен">Математика 1-522 Пономарева С.Я.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:30 - 14:05</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Экзамен">Философия 4-109</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:15 - 15:50</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Основы информатики 4-406</span>
+                        </td>
+                    </tr>
+
+                   
+                    <tr class="day-boundary">
+                        <td class="day-title" rowspan="4">Среда</td>
+                        <td class="time-cell">8:30 - 10:05</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Экзамен">Философия 1-517</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:15 - 11:50</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Элективные курсы по физической культуре</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:30 - 14:05</td>
+                        <td>
+                            <div class="week-split">
+                                <span class="discipline-clickable numerator" data-info="Форма контроля: Экзамен">Математика 1-518</span>
+                                <span class="discipline-clickable denominator" data-info="Форма контроля: Зачет">Основы информатики 4-406</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:15 - 15:50</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Основы информатики 4-406 Акмаров П.Б.</span>
+                        </td>
+                    </tr>
+
+                   
+                    <tr class="day-boundary">
+                        <td class="day-title" rowspan="4">Четверг</td>
+                        <td class="time-cell">8:30 - 10:05</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Web-технологии 4-406 Акмаров П.Б.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:15 - 11:50</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Web-технологии 4-406</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:30 - 14:05</td>
+                        <td>
+                            <div class="week-split">
+                                <span class="discipline-clickable numerator" data-info="Форма контроля: Экзамен">Организация ЭВМ и системы 4-405 Миронова М.В.</span>
+                                <span class="discipline-clickable denominator" data-info="Форма контроля: Экзамен">Организация ЭВМ и системы 4-405</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:15 - 15:50</td>
+                        <td>
+                            <div class="week-split">
+                                <span class="discipline-clickable numerator" data-info="Форма контроля: Экзамен">Базы данных 4-405 Кравченко Н.А.</span>
+                                <span class="discipline-clickable denominator" data-info="Форма контроля: Экзамен">Базы данных 4-405</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    
+                    <tr class="day-boundary">
+                        <td class="day-title" rowspan="3">Пятница</td>
+                        <td class="time-cell">8:30 - 10:05</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Ин.яз. 2-104</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:15 - 11:50</td>
+                        <td>
+                            <span class="discipline-clickable" data-info="Форма контроля: Зачет">Элективные курсы по физической культуре</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:30 - 14:05</td>
+                        <td>
+                            <div class="week-split">
+                                <span class="discipline-clickable numerator" data-info="Форма контроля: Зачет">Бухгалтерский учет 4-307 Тришканова И.Е.</span>
+                                <span class="discipline-clickable denominator" data-info="Форма контроля: Зачет">Бухгалтерский учет 4-407</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
